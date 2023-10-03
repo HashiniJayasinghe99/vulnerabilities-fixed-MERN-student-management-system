@@ -1,108 +1,118 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./StudentProfileLogin.css";
-import VpnKey from "@mui/icons-material/VpnKey";
-import StudentProfile from "./StudentProfile";
+import "./StudentProfile.css";
+import back from "../images/StudentImages/back.gif";
 
-function StudentProfileLogin() {
-    /*const [student, setStudent] = useState([]);*/
-    const [valid, setValid] = useState(false);
-    const [user, setUser] = useState({
-        studentId: "",
-        password: "",
-    });
+export default function StudentProfile(props) {
+  const [students, setStudents] = useState([]);
 
-    /*let navigate = useNavigate();*/
-
-    function sendData(e) {
-        e.preventDefault();
-
-        axios
-            .post("http://localhost:5000/api/students/validate", user)
-            .then((res) => {
-                if (res.status === 200) {
-                    alert("student validated");
-                    setValid(res.data);
-                    //setStudent(res.data);
-
-                    //navigate("/StudentProfile");
-                }
-            })
-            .catch((err) => {
-                alert("Login details are invalid, Please try again!!!");
-
-                setValid(false);
-            });
-    }
-
-    function handleChange(event) {
-        const { name, value } = event.target;
-
-        setUser((preValue) => {
-            return {
-                ...preValue,
-                [name]: value,
-            };
+  useEffect(() => {
+    function getStudents() {
+      axios
+        .get("http://localhost:5000/api/students")
+        .then((res) => {
+          const results = res.data;
+          setStudents(
+            results.filter((result) => result.studentId === props.studentID)
+          );
+        })
+        .catch((err) => {
+          alert(err.message);
         });
     }
+    getStudents();
+  }, []);
 
-    return (
+  return (
+    <div>
+      <div className="all">
         <div>
-            {valid === false ? (
-                <div className="container mt-5">
-                    <h4 className="warning_message_above_heading" >
-                        Enter your login details again for security purposes.
-                    </h4>
-
-                    <div className="loginHeading">Student Login</div>
-
-                    <div className="container">
-                        <div className="formStyle">
-                            <div className="LoginProfileformMainDiv">
-
-                                <form onSubmit={sendData}>
-                                    <div className="form-group ">
-                                        <label for="id" >Student ID</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            name="studentId"
-                                            value={user.studentId}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label for="password">Password</label>
-                                        <input
-                                            type="password"
-                                            className="form-control"
-                                            name="password"
-                                            value={user.password}
-                                            onChange={handleChange}
-                                            required
-                                        />
-                                    </div>
-                                    <button type="submit" className="btn btn-dark">
-                                        <VpnKey />
-                                        &nbsp;&nbsp; Login
-                                    </button>
-                                </form>
-                                <br />
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ) : (
-                <div>
-                    <StudentProfile studentID={user.studentId} />
-                </div>
-            )}
+          <a href="/StudentMenu">
+            <button className="profile_back_button">
+              <img className="profile_back_button-image" src={back} alt="books" />
+              <p>Back</p>
+            </button>
+          </a>
+          <br />
         </div>
-    );
-}
 
-export default StudentProfileLogin;
+        <h2 className="heading">Student Profile</h2>
+        <p style={{ fontSize: "140%", fontWeight: "bold", marginLeft: "675px", color: "white" }}>
+          Hello {props.studentID}
+        </p>
+        <br />
+
+        <div className="Content_Of_User">
+          <table className="tableStyle">
+            <tbody className="">
+              {students.map((student, index) => {
+                return (
+                  <tr key={student._id}>
+                    <tr>
+                      <th scope="col"></th>
+                      <td></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">Student ID</th>
+                      <td>{student.studentId}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">First Name</th>
+                      <td>{student.fName}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">Last Name</th>
+                      <td>{student.lName}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">NIC No</th>
+                      <td>{student.nic}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">Faculty</th>
+                      <td>{student.faculty}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">Gender</th>
+                      <td>{student.gender}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">Email</th>
+                      <td>{student.email}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="col">Phone Number</th>
+                      <td>{student.phoneNumber}</td>
+                    </tr>
+
+                    <tr>
+                      <th></th>
+                      <td>
+                        <a
+                          className="btn btn-warning updateBTN"
+                          href={`/StudentProfileUpdate/${encodeURIComponent(student._id)}`}
+                        >
+                          Update
+                        </a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                      </td>
+                    </tr>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <br /> <br /> <br />
+        </div>
+      </div>
+    </div>
+  );
+}
