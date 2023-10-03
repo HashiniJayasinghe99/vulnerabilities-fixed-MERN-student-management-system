@@ -71,20 +71,21 @@ function ViewQuizzes() {
   }
 
   function printDiv(divName) {
-    var sanitizedDivName = xss.escapeHtml(divName); // Sanitize divName
-    var printContents = document.getElementById(sanitizedDivName).innerHTML;
-
-    // Create a new window or iframe
-    var printWindow = window.open("", "_blank");
+    const sanitizedDivName = xss.escapeHtml(divName); // Sanitize divName
+    const printContents = document.getElementById(sanitizedDivName).innerHTML;
+    const printWindow = window.open("", "", "width=600,height=600");
   
-    // Set the document content of the new window or iframe
     printWindow.document.open();
-    printWindow.document.write('<html><head><title>Print</title></head><body>');
-    printWindow.document.write(printContents);
-    printWindow.document.write('</body></html>');
+    printWindow.document.write(`
+      <html>
+      <head>
+        <title>Print</title>
+      </head>
+      <body>${xss.escapeHtml(printContents)}</body> // Sanitize printContents
+      </html>
+    `);
+  
     printWindow.document.close();
-
-    // Print the content
     printWindow.print();
     printWindow.close();
   }
