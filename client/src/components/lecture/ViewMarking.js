@@ -8,6 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
+import xss from "xss"; // Import the xss library
 
 function ViewMarking() {
   const [Marking, setMarking] = useState([]);
@@ -71,7 +72,8 @@ function ViewMarking() {
   }
 
   function printDiv(divName) {
-    const printContents = document.getElementById(divName).innerHTML;
+    const sanitizedDivName = xss.escapeHtml(divName); // Sanitize divName
+    const printContents = document.getElementById(sanitizedDivName).innerHTML;
     const printWindow = window.open("", "", "width=600,height=600");
     
     printWindow.document.open();
@@ -88,7 +90,6 @@ function ViewMarking() {
     printWindow.print();
     printWindow.close();
   }
-  
 
   return (
     <div className="tableStyleL">
