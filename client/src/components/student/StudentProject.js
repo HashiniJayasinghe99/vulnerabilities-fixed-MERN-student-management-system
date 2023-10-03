@@ -106,7 +106,7 @@ export default function StudentProject() {
                                 <td>
                                     <a
                                         className="btn btn-warning"
-                                        href={`/UpdateStudentProject/${topic._id}`}
+                                        href={`/UpdateStudentProject/${encodeURIComponent(topic._id)}`}
                                     >
                                         <EditIcon />
                                         &nbsp;&nbsp; Update
