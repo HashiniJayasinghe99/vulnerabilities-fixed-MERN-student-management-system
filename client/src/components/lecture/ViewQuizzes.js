@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import xss from "xss"; // Import the xss library
 import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
@@ -70,20 +71,22 @@ function ViewQuizzes() {
   }
 
   function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
+    var sanitizedDivName = xss.escapeHtml(divName); // Sanitize divName
+    var printContents = document.getElementById(sanitizedDivName).innerHTML;
 
-    document.body.innerHTML = printContents;
+    // Create a new window or iframe
+    var printWindow = window.open("", "_blank");
+  
+    // Set the document content of the new window or iframe
+    printWindow.document.open();
+    printWindow.document.write('<html><head><title>Print</title></head><body>');
+    printWindow.document.write(printContents);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
 
-    window.print();
-
-    document.body.innerHTML = originalContents;
-  }
-
-  function handleViewClick(_id) {
-    // Sanitize _id using encodeURIComponent
-    const sanitizedId = encodeURIComponent(_id);
-    window.location.hash = sanitizedId;
+    // Print the content
+    printWindow.print();
+    printWindow.close();
   }
 
   return (
@@ -173,7 +176,7 @@ function ViewQuizzes() {
                 <div className="link-div">
                   <a
                     className="viewLink"
-                    href={`#${handleViewClick(quiz._id)}`}
+                    href={`#${xss.escapeHtml(quiz._id)}`} // Sanitize quiz._id
                   >
                     View
                   </a>
