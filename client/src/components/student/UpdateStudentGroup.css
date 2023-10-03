@@ -1,0 +1,27 @@
+.UpdateStudentGroup__page_layout {
+    width: 70%;
+    height: 545px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px !important;
+    margin: 0% 2% 13% 15%;
+    border-color: aqua;
+    border-style: solid;
+    border: 1;
+    padding: 7vh;
+}
+
+
+.UpdateStudentGroup_LeftSideForm {
+    width: 900px;
+}
+
+.UpdateStudentGroup_RightsideForm {
+    width: 440px;
+}
+
+.update_btn {
+    margin-top: 10px;
+    margin-left: 580px;
+}

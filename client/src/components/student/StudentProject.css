@@ -1,0 +1,52 @@
+  .studentProjectBtn {
+    border: 2;
+    margin-left: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 0px;
+    border: 2;
+    border-radius: 15px;
+    height: 8vh;
+  }
+
+  .button50 {
+    border: 2;
+    margin-left: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    border-radius: 15px;
+    height: 8vh;
+  }
+
+  .button50 img {
+    width: 7.7vh;
+    height: 6.7vh;
+    padding-right: 8px;
+  }
+
+  .button51 img {
+    width: 7.7vh;
+    height: 6.7vh;
+    padding-right: 8px;
+  }
+
+  .button52 img {
+    width: 7.7vh;
+    height: 6.7vh;
+    padding-right: 8px;
+  }
+
+  .searchBar2 {
+    margin-left: 20px;
+    width: 75vh;
+    border: 1;
+    height: 7vh;
+  }
+
+  .search-img {
+    width: 5vh;
+  }
+
+  table {
+    margin-top: -3vh;
+  }

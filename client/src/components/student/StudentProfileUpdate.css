@@ -1,0 +1,35 @@
+.StudentProfile_heading {
+    color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: -20vh;
+    font-size: 28px;
+}
+
+.studentProfileformStyle{
+    width: 60%;
+    height: 650px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    border-radius: 12px !important;
+    margin: 0% 2% 13% 15%;
+    border-color: aqua;
+    border-style: solid;
+    border: 1;
+    padding: 7vh;
+}
+
+.UpdateStudentProfile_LeftSideForm {
+    width: 900px;
+}
+
+.UpdateStudentProfile_RightsideForm {
+    width: 440px;
+}
+
+.stdProfileUpdate_btn {
+    margin-top: 10px;
+    margin-left: 490px;
+}

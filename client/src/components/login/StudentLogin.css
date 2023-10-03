@@ -1,0 +1,25 @@
+.loginHeading {
+  font-size: 180%;
+  color: #66fcf1;
+  margin-bottom: 2%;
+  margin-top: 1.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form_Style {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 15vh;
+  font-weight: bold;
+}
+
+.LoginformMainDiv {
+  padding: 5% 3% 3%;
+  background-color: white;
+  border-radius: 2%;
+  width: 65vh;
+  height: 60vh;
+}

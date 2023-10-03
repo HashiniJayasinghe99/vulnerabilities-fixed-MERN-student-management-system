@@ -1,0 +1,22 @@
+.warning_message_above_heading{
+    text-align: center;
+     margin-bottom:40px;
+     color: red;
+}
+
+.formStyle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 15vh;
+    font-weight: bold;
+  }
+  
+  .LoginProfileformMainDiv {
+    padding: 5% 3% 3%;
+    background-color: white;
+    border-radius: 2%;
+    width: 65vh;
+    height: 50vh;
+  }
+

@@ -1,0 +1,190 @@
+.AdmMenu {
+  margin-bottom: 10%;
+}
+
+.adminMenu {
+  margin-top: 3%;
+  margin-left: 15%;
+  margin-right: 50%;
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.staff_heading {
+  font-size: 180%;
+  color: #cadefc;
+  margin-bottom: 2%;
+  font-weight: 600;
+  text-align: center;
+}
+
+.table_heading {
+  margin-top: 1%;
+  font-size: 180%;
+  color: #cadefc;
+  font-weight: 600;
+  text-align: center;
+}
+
+.table_heading_FN {
+  font-size: 180%;
+  color: #cadefc;
+  font-weight: 600;
+  text-align: center;
+}
+
+.admBtn {
+  margin-top: 30px;
+}
+
+.adminMenuBtns {
+  font-size: 100%;
+  font-weight: 600;
+  text-align: left;
+}
+
+button {
+  margin-bottom: 18px;
+}
+
+.staffformStyle {
+  padding: 3% 20% 15% 20%;
+}
+
+.staffformStyle_1 {
+  padding: 3% 3% 1%;
+  background-color: white;
+  border-radius: 1%;
+  background-color: #d5def5;
+  font-weight: 600;
+}
+
+.admin_table_style {
+  padding: 3% 3% 10%;
+}
+
+.tableStyle_FN {
+  padding: 0% 3% 10%;
+}
+
+.admin_searchBar {
+  padding: 0% 0% 3% 80%;
+}
+
+.adminMenuImg {
+  border-radius: 50%;
+  width: 35%;
+  margin-top: 15px;
+}
+
+.admProfile {
+  position: relative;
+  margin-top: -500px;
+  margin-left: 50%;
+  margin-right: 10%;
+  text-align: center;
+}
+
+.profileBottomArea {
+  margin-top: 20px;
+  padding: 0% 30%;
+}
+
+.profileHeading {
+  color: #cadefc;
+}
+
+.admProfileLoginHeading {
+  font-size: 180%;
+  color: #66fcf1;
+  margin-bottom: 3%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.profileImage {
+  width: 17%;
+  border-radius: 50%;
+  margin-top: 30px;
+}
+
+.profileDetails {
+  color: white;
+  padding-top: 30px;
+  font-size: 120%;
+  padding: 3% 20% 10% 30%;
+}
+
+.profileContent {
+  text-align: center;
+}
+
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 15px;
+  width: 420px;
+  margin: 16px 24px 5%;
+  float: left;
+  height: 280px;
+  border: 3px solid darkcyan;
+}
+.note h1 {
+  font-size: 1.3em;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: lightcoral;
+}
+
+.note h4 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: 500;
+  color: rgb(77, 111, 224);
+}
+
+.note p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.note Button {
+  position: relative;
+  float: right;
+}
+
+.viewNotice {
+  margin: 3% 15% 10%;
+  padding: 20px;
+  background-color: white;
+  border: 3px solid darkcyan;
+  border-radius: 15px;
+}
+
+.viewNotice h1 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
+  color: lightcoral;
+}
+
+.viewNotice h2 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-align: left;
+  color: darkred;
+}
+
+.viewNotice h3 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: left;
+  color: black;
+}

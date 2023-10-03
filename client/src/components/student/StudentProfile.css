@@ -1,0 +1,54 @@
+.Content_Of_User {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 5%;
+    border: 1;
+    border-radius: 10px;
+    padding-bottom: 10vh;
+}
+
+.tableStyle {
+    width: 40%;
+    height: 50%;
+    padding-top: 50px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #66fcf1;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+th {
+    padding-left: 130px;
+}
+
+.updateBTN{
+    margin-top: 4px;
+    margin-left: 150px;
+}
+
+.profile_back_button{
+    display: flex;
+    flex-direction: row;
+    margin-left: 120px;
+    border-radius: 10px;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.profile_back_button p{ 
+    padding-top: 13px;
+}
+
+.profile_back_button-image{
+    padding-right: 0px;
+    width: 8vh;
+    border-radius: 20px;
+    margin-right: 10px;
+}

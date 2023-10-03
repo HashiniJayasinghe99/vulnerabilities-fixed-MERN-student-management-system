@@ -1,0 +1,65 @@
+.left-nav-bar {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 0vh;
+}
+
+.left-nav-bar-button {
+    width: 280px;
+    height: 70px;
+    margin-top: 7px;
+    background-color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+}
+
+.btn-1 {
+    margin-top: 1vh;
+}
+
+.left-nav-bar-image {
+    width: 8vh;
+    margin-right: 2vh;
+}
+
+.next-you-image {
+    display: flex;
+    position: relative;
+    padding-left: 260px;
+    margin-top: -470px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.next-you-image img {
+    width: 100vh;
+}
+
+.moduleMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 20px;
+    padding-bottom: 10vh;
+}
+
+.spm_module_button {
+    width: 100vh;
+    height: 70px;
+    margin-left: 260px;
+    cursor: pointer;
+}
+
+.moduleMenu-image{
+    width: 8vh;
+    margin-right: 20vh;
+    margin-left: -12vh;
+}
+
+.moduleMenu button:hover{
+    transform: scale(1.12);
+}
