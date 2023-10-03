@@ -75,17 +75,17 @@ function ViewMarking() {
     const sanitizedDivName = xss.escapeHtml(divName); // Sanitize divName
     const printContents = document.getElementById(sanitizedDivName).innerHTML;
     const printWindow = window.open("", "", "width=600,height=600");
-    
+  
     printWindow.document.open();
     printWindow.document.write(`
       <html>
       <head>
         <title>Print</title>
       </head>
-      <body>${printContents}</body>
+      <body>${xss.escapeHtml(printContents)}</body> // Sanitize printContents
       </html>
     `);
-    
+  
     printWindow.document.close();
     printWindow.print();
     printWindow.close();
