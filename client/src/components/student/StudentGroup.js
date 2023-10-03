@@ -116,7 +116,7 @@ export default function StudentGroup() {
                                 <td>
                                     <a
                                         className="btn btn-warning"
-                                        href={`/UpdateStudentGroup/${xss.escapeHtml(group._id)}`}
+                                        href={`/UpdateStudentGroup/${encodeURIComponent(group._id)}`}
                                     >
                                         <EditIcon />
                                         &nbsp;&nbsp; Update
