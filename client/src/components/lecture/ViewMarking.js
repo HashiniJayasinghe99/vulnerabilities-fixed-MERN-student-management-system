@@ -71,15 +71,24 @@ function ViewMarking() {
   }
 
   function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
-
-    document.body.innerHTML = printContents;
-
-    window.print();
-
-    document.body.innerHTML = originalContents;
+    const printContents = document.getElementById(divName).innerHTML;
+    const printWindow = window.open("", "", "width=600,height=600");
+    
+    printWindow.document.open();
+    printWindow.document.write(`
+      <html>
+      <head>
+        <title>Print</title>
+      </head>
+      <body>${printContents}</body>
+      </html>
+    `);
+    
+    printWindow.document.close();
+    printWindow.print();
+    printWindow.close();
   }
+  
 
   return (
     <div className="tableStyleL">
