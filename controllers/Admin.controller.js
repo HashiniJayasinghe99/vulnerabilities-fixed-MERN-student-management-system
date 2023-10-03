@@ -1,10 +1,16 @@
-import Admin from "../models/Admin.model.js";
+import bcrypt from 'bcrypt';
 
+import Admin from '../models/Admin.model.js';
+
+// Add new admin
 export const addAdmin = async (req, res) => {
   const { fName, lName, adminId, nic, gender, email, phoneNumber, password } =
     req.body;
 
   try {
+    // Hash the password using bcrypt
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const admin = new Admin({
       fName,
       lName,
@@ -13,7 +19,7 @@ export const addAdmin = async (req, res) => {
       gender,
       email,
       phoneNumber,
-      password,
+      password: hashedPassword, // Store the hashed password
     });
 
     const createdAdmin = await admin.save();
@@ -22,7 +28,7 @@ export const addAdmin = async (req, res) => {
     res.status(400).json(error);
   }
 };
-
+// Get all admins
 export const getAdmins = async (req, res) => {
   try {
     const admins = await Admin.find();
@@ -32,6 +38,7 @@ export const getAdmins = async (req, res) => {
   }
 };
 
+// Get admin by ID
 export const getAdmin = async (req, res) => {
   const userId = req.params.id;
 
@@ -43,6 +50,7 @@ export const getAdmin = async (req, res) => {
   }
 };
 
+// Update admin by ID
 export const updateAdmin = async (req, res) => {
   const userId = req.params.id;
 
@@ -73,6 +81,7 @@ export const updateAdmin = async (req, res) => {
   }
 };
 
+// Remove admin by ID
 export const removeAdmin = async (req, res) => {
   const userId = req.params.id;
 
@@ -90,6 +99,7 @@ export const removeAdmin = async (req, res) => {
   }
 };
 
+// Validate admin credentials
 export const validateAdmin = async (req, res) => {
   const admId = req.body.adminId;
   const pass = req.body.password;
@@ -109,6 +119,7 @@ export const validateAdmin = async (req, res) => {
   }
 };
 
+// Manage admin profile
 export const ManageAdminProfile = async (req, res) => {
   const admId = req.body.adminId;
   const pass = req.body.password;
