@@ -1,7 +1,7 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
-const {
+import {
   addAdmin,
   getAdmins,
   getAdmin,
@@ -9,7 +9,7 @@ const {
   removeAdmin,
   validateAdmin,
   ManageAdminProfile,
-} = require("../controllers/Admin.controller");
+} from "../controllers/Admin.controller.js";
 
 router.get("/", getAdmins);
 
@@ -25,4 +25,4 @@ router.post("/validate", validateAdmin);
 
 router.post("/manageProfile", ManageAdminProfile);
 
-module.exports = router;
+export { router };

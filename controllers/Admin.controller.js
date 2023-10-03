@@ -1,31 +1,29 @@
-const Admin = require("../models/Admin.model");
+import Admin from "../models/Admin.model.js";
 
-const addAdmin = (req, res) => {
+export const addAdmin = async (req, res) => {
   const { fName, lName, adminId, nic, gender, email, phoneNumber, password } =
     req.body;
 
-  const admin = new Admin({
-    fName,
-    lName,
-    adminId,
-    nic,
-    gender,
-    email,
-    phoneNumber,
-    password,
-  });
-
-  admin
-    .save()
-    .then((createdAdmin) => {
-      res.json(createdAdmin);
-    })
-    .catch((error) => {
-      res.status(400).json(error);
+  try {
+    const admin = new Admin({
+      fName,
+      lName,
+      adminId,
+      nic,
+      gender,
+      email,
+      phoneNumber,
+      password,
     });
+
+    const createdAdmin = await admin.save();
+    res.json(createdAdmin);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 };
 
-const getAdmins = async (req, res) => {
+export const getAdmins = async (req, res) => {
   try {
     const admins = await Admin.find();
     res.json(admins);
@@ -34,7 +32,7 @@ const getAdmins = async (req, res) => {
   }
 };
 
-const getAdmin = async (req, res) => {
+export const getAdmin = async (req, res) => {
   const userId = req.params.id;
 
   try {
@@ -45,7 +43,7 @@ const getAdmin = async (req, res) => {
   }
 };
 
-const updateAdmin = async (req, res) => {
+export const updateAdmin = async (req, res) => {
   const userId = req.params.id;
 
   try {
@@ -75,7 +73,7 @@ const updateAdmin = async (req, res) => {
   }
 };
 
-const removeAdmin = async (req, res) => {
+export const removeAdmin = async (req, res) => {
   const userId = req.params.id;
 
   try {
@@ -92,7 +90,7 @@ const removeAdmin = async (req, res) => {
   }
 };
 
-const validateAdmin = async (req, res) => {
+export const validateAdmin = async (req, res) => {
   const admId = req.body.adminId;
   const pass = req.body.password;
 
@@ -111,7 +109,7 @@ const validateAdmin = async (req, res) => {
   }
 };
 
-const ManageAdminProfile = async (req, res) => {
+export const ManageAdminProfile = async (req, res) => {
   const admId = req.body.adminId;
   const pass = req.body.password;
 
@@ -128,14 +126,4 @@ const ManageAdminProfile = async (req, res) => {
   } catch (error) {
     res.status(400).json(error);
   }
-};
-
-module.exports = {
-  addAdmin,
-  getAdmins,
-  getAdmin,
-  updateAdmin,
-  removeAdmin,
-  validateAdmin,
-  ManageAdminProfile,
 };
