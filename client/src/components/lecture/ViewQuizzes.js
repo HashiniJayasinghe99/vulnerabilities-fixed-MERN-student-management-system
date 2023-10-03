@@ -176,7 +176,7 @@ function ViewQuizzes() {
                 <div className="link-div">
                   <a
                     className="viewLink"
-                    href={`#${xss.escapeHtml(quiz._id)}`} // Sanitize quiz._id
+                    href={`#${encodeURIComponent(quiz._id)}`} // Sanitize quiz._id
                   >
                     View
                   </a>
