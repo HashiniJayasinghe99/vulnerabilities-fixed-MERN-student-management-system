@@ -7,6 +7,7 @@ import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
 import { router as AdminRoutes } from './routes/Admin.route.js';
 
+// Load environment variables from a .env file if needed
 dotenv.config();
 
 const app = express();
@@ -22,7 +23,16 @@ app.use(cors({
 
 app.use(express.json());
 app.use(helmet({
-  contentSecurityPolicy: false, // Disable unsafe-inline for scripts/styles if needed
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", 'cdnjs.cloudflare.com','code.jquery.com','maxcdn.bootstrapcdn.com','kit.fontawesome.com'],
+      styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com'],
+      imgSrc: ["'self'"],
+      connectSrc: ["'self'"],
+      fontSrc: ["'self'", 'maxcdn.bootstrapcdn.com','fonts.googleapis.com'],
+    },
+  },
 }));
 
 // Connect to MongoDB
