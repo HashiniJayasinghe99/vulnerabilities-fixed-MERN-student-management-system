@@ -6,23 +6,25 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import { router as AdminRoutes } from './routes/Admin.route.js';
 
-
 dotenv.config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
-app.use(helmet()); // Apply Helmet middleware
-app.use(cookieParser());
-
 const port = process.env.PORT || 5000;
 const uri = process.env.MONGO_URI;
 
+// Middleware to enhance security
+app.use(cors());
+app.use(helmet());
+app.use(cookieParser());
+app.use(express.json());
+
+// Connect to MongoDB
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
   console.log('MongoDB Connected');
 });
 
+// Define your routes here
 app.get('/', (req, res) => {
   res.send('API running');
 });
