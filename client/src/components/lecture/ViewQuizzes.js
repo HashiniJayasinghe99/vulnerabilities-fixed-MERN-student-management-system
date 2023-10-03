@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import xss from "xss"; // Import the xss library
 import Button from "@mui/material/Button";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
@@ -71,8 +70,7 @@ function ViewQuizzes() {
   }
 
   function printDiv(divName) {
-    var sanitizedDivName = xss.escapeHtml(divName); // Sanitize divName
-    var printContents = document.getElementById(sanitizedDivName).innerHTML;
+    var printContents = document.getElementById(divName).innerHTML;
     var originalContents = document.body.innerHTML;
 
     document.body.innerHTML = printContents;
@@ -80,6 +78,12 @@ function ViewQuizzes() {
     window.print();
 
     document.body.innerHTML = originalContents;
+  }
+
+  function handleViewClick(_id) {
+    // Sanitize _id using encodeURIComponent
+    const sanitizedId = encodeURIComponent(_id);
+    window.location.hash = sanitizedId;
   }
 
   return (
@@ -169,7 +173,7 @@ function ViewQuizzes() {
                 <div className="link-div">
                   <a
                     className="viewLink"
-                    href={`#${xss.escapeHtml(quiz._id)}`} // Sanitize quiz._id
+                    href={`#${handleViewClick(quiz._id)}`}
                   >
                     View
                   </a>
