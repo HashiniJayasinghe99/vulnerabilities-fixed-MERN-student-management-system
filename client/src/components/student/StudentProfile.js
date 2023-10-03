@@ -98,7 +98,7 @@ export default function StudentProfile(props) {
                       <td>
                         <a
                           className="btn btn-warning updateBTN"
-                          href={`/StudentProfileUpdate/${student._id}`}
+                          href={`/StudentProfileUpdate/${encodeURIComponent(student._id)}`}
                         >
                           Update
                         </a>
