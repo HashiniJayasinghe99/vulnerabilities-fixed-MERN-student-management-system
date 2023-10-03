@@ -125,9 +125,7 @@ function TransportDetails() {
                                     <td>
                                         <a
                                             className="btn btn-warning"
-                                            href={`/Updatetransport/${xss.escapeHtml(
-                                                transport._id
-                                            )}`}
+                                            href={`/Updatetransport/${encodeURIComponent(transport._id)}`}
                                         >
                                             <EditIcon />
                                             &nbsp;&nbsp; <b>Update</b>
